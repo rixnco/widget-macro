@@ -829,13 +829,15 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
         (chilipeppr_pause) or ; chilipeppr_pause
         
         Here is a sample gcode file that uses chilipeppr_pause
-        <pre>G0 X0 Y0 Z0
+        ```
+        G0 X0 Y0 Z0
         F50
         G1 X10
         (chilipeppr_pause trigger laser on)
         G1 X20
         (chilipeppr_pause trigger laser off)
-        G0 X0</pre>
+        G0 X0
+        ```
          */
         watchChiliPepprPause: function() {
             // This macro shows how to watch for the chilipeppr
