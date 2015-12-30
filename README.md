@@ -1,9 +1,9 @@
 # com-chilipeppr-widget-macro
-This example widget gives you a framework for creating your own widget. Please change this description once you fork this template and create your own widget.
+Edit and run Javascript macros inside ChiliPeppr. Lots of sample macros too.
 
 ![alt text](screenshot.png "Screenshot")
 
-## ChiliPeppr Widget / Template
+## ChiliPeppr Widget / Macro
 
 All ChiliPeppr widgets/elements are defined using cpdefine() which is a method
 that mimics require.js. Each defined object must have a unique ID so it does
@@ -12,8 +12,8 @@ not conflict with other ChiliPeppr widgets.
 | Item                  | Value           |
 | -------------         | ------------- | 
 | ID                    | com-chilipeppr-widget-macro |
-| Name                  | Widget / Template |
-| Description           | This example widget gives you a framework for creating your own widget. Please change this description once you fork this template and create your own widget. |
+| Name                  | Widget / Macro |
+| Description           | Edit and run Javascript macros inside ChiliPeppr. Lots of sample macros too. |
 | chilipeppr.load() URL | http://raw.githubusercontent.com/chilipeppr/com-chilipeppr-widget-macro/master/auto-generated-widget.html |
 | Edit URL              | http://ide.c9.io/chilipeppr/com-chilipeppr-widget-macro |
 | Github URL            | http://github.com/chilipeppr/com-chilipeppr-widget-macro |
@@ -90,8 +90,8 @@ The table below shows, in order, the methods and properties inside the widget/el
 | Item                  | Type          | Description |
 | -------------         | ------------- | ----------- |
 | id | string | "com-chilipeppr-widget-macro"<br><br>The ID of the widget. You must define this and make it unique. |
-| name | string | "Widget / Template" |
-| desc | string | "This example widget gives you a framework for creating your own widget. Please change this description once you fork this template and create your own widget." |
+| name | string | "Widget / Macro" |
+| desc | string | "Edit and run Javascript macros inside ChiliPeppr. Lots of sample macros too." |
 | url | string | "http://raw.githubusercontent.com/chilipeppr/com-chilipeppr-widget-macro/master/auto-generated-widget.html" |
 | fiddleurl | string | "http://ide.c9.io/chilipeppr/com-chilipeppr-widget-macro" |
 | githuburl | string | "http://github.com/chilipeppr/com-chilipeppr-widget-macro" |
