@@ -699,12 +699,12 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             to actually dispense solder paste
             
             Here is a sample gcode file that uses chilipeppr_pause
-            <pre>G0 X0 Y0 Z0
-            F50
-            G1 X10
-            (chilipeppr_pause trigger laser on)
-            G1 X20
-            (chilipeppr_pause trigger laser off)
+            <pre>G0 X0 Y0 Z0<br>
+            F50<br>
+            G1 X10<br>
+            (chilipeppr_pause trigger laser on)<br>
+            G1 X20<br>
+            (chilipeppr_pause trigger laser off)<br>
             G0 X0</pre>
             */
         watchChiliPepprPauseSolderDispenser: function() {
