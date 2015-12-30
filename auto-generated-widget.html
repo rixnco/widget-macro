@@ -840,6 +840,21 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             }
             myWatchChiliPepprPause.init();
         },
+        /**
+        * This macro shows how to watch for the chilipeppr
+        pause sync event that is triggered if you include
+        a comment in your gcode file like 
+        (chilipeppr_pause) or ; chilipeppr_pause
+        
+        Here is a sample gcode file that uses chilipeppr_pause
+        G0 X0 Y0 Z0
+        F50
+        G1 X10
+        (chilipeppr_pause trigger laser on)
+        G1 X20
+        (chilipeppr_pause trigger laser off)
+        G0 X0
+         */
         watchChiliPepprPause: function() {
             // This macro shows how to watch for the chilipeppr
             // pause sync event that is triggered if you include
