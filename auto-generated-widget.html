@@ -576,6 +576,155 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
         },
 
         // START SAMPLES
+        /**
+         * This macro helps you generate a zig zag tool
+         * path inside of an overall rectangular shape. 
+         * Give it the width and height of the rectangular
+         * shape. Then give it the step over value and it 
+         * will generate the gcode and then send it to the 
+         * workspace so you can visualize it and run it.
+         * 
+         * This can be used to mill out or pocket a work
+         * piece. It can also be used to scan a laser
+         * over a surface to ablate or cure material
+         * by scanning back and forth with a step over.
+         */
+        generateZigZag: function() {
+            /**
+             * This macro helps you generate a zig zag tool
+             * path inside of an overall rectangular shape. 
+             * Give it the width and height of the rectangular
+             * shape. Then give it the step over value and it 
+             * will generate the gcode and then send it to the 
+             * workspace so you can visualize it and run it.
+             * 
+             * This can be used to mill out or pocket a work
+             * piece. It can also be used to scan a laser
+             * over a surface to ablate or cure material
+             * by scanning back and forth with a step over.
+             */
+            window = {};
+            var generateZigZag = {
+                units: "mm", // or "inch"
+                width: 1.5,
+                height: 2,
+                stepover: 0.1,
+                /**
+                 * If we step over on x, then we are scanning
+                 * the y from bottom to top, then stepping over
+                 * on x, then scanning y top to bottom. If
+                 * we step over on y, then we are scanning
+                 * from left to right on x, stepping up on y
+                 * then scanning from right to left.
+                 */
+                stepdirection: "x", // or "y"
+                feedrate: 100,
+                init: function() {
+                    // Uninit previous runs so that any permanent
+                    // in-memory stuff we do can be removed without
+                    // have to reload the browser
+                    if (window["generateZigZag"]) {
+                        macro.status("This macro was run before. Cleaning up...");
+                        window["generateZigZag"].uninit();
+                    }
+                    macro.status("Initting...");
+    
+                    // store macro in window object so we have it next time thru
+                    window["generateZigZag"] = this;
+                },
+                uninit: function() {
+                    macro.status("Uninitting...");
+                },
+                createToolPath: function(options) {
+    
+                    // See if user wants to override defaults
+                    if (!options) options = {}
+                    if (!options.units) options.units = this.units;
+                    if (!options.width) options.width = this.width;
+                    if (!options.height) options.height = this.height;
+                    if (!options.stepover) options.stepover = this.stepover;
+                    if (!options.stepdirection) options.stepdirection = this.stepdirection;
+                    if (!options.feedrate) options.feedrate = this.feedrate;
+    
+                    this.lastOptions = options;
+    
+                    var cmds = ['G0 X0 Y0', 'G1 F' + options.feedrate];
+    
+                    if (options.stepdirection == "x") {
+                        var isAtTop = false;
+                        for (var x = 0; x <= options.width; x += options.stepover) {
+                            cmds.push("G1 X" + x);
+                            if (isAtTop) {
+                                cmds.push("G1 Y0");
+                                isAtTop = false;
+                            }
+                            else {
+                                cmds.push("G1 Y" + options.height);
+                                isAtTop = true;
+                            }
+                        }
+                    }
+                    else {
+                        var isAtRight = false;
+                        for (var y = 0; y <= options.height; y += options.stepover) {
+                            cmds.push("G1 Y" + y);
+                            if (isAtRight) {
+                                cmds.push("G1 X0");
+                                isAtRight = false;
+                            }
+                            else {
+                                cmds.push("G1 X" + options.width);
+                                isAtRight = true;
+                            }
+                        }
+    
+                    }
+    
+                    // trace
+                    cmds.push("G0 X0 Y0");
+                    cmds.push("G1 X" + options.width);
+                    cmds.push("Y" + options.height);
+                    cmds.push("X0");
+                    cmds.push("Y0");
+    
+                    return cmds.join("\n");
+                },
+                sendGcodeToWorkspace: function(gcodetext) {
+                    var info = {
+                        name: "Zig Zag",
+                        lastModified: new Date()
+                    };
+                    if (this.lastOptions) info.name += " w:" + this.lastOptions.width + " h:" + this.lastOptions.height + " so:" + this.lastOptions.stepover;
+                    // send event off as if the file was drag/dropped
+                    chilipeppr.publish("/com-chilipeppr-elem-dragdrop/ondropped", gcodetext, info);
+                }
+            }
+            generateZigZag.init();
+            var gcode = "(My zig zag for SMD pad)\nG21\n";
+            gcode += generateZigZag.createToolPath();
+            gcode += "\nG0 X0 Y0 Z0.1\n";
+            gcode += generateZigZag.createToolPath({
+                stepdirection: "y"
+            });
+            generateZigZag.sendGcodeToWorkspace(gcode);
+        },
+        /**
+         *  This macro shows how to watch for the chilipeppr
+            pause sync event that is triggered if you include
+            a comment in your gcode file like 
+            (chilipeppr_pause) or ; chilipeppr_pause
+            And then it sends commands to a 2nd CNC controller
+            to actually dispense solder paste
+            
+            Here is a sample gcode file that uses chilipeppr_pause
+            G0 X0 Y0 Z0
+            F50
+            G1 X10
+            (chilipeppr_pause trigger laser on)
+            G1 X20
+            (chilipeppr_pause trigger laser off)
+            G0 X0
+            */
         watchChiliPepprPauseSolderDispenser: function() {
             // This macro shows how to watch for the chilipeppr
             // pause sync event that is triggered if you include
