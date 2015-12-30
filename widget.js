@@ -532,7 +532,7 @@ jscript: null, // contains the javascript macro that the user is working with
             return arr.join("\n");
         },
 
-        /* START SAMPLES */
+        // START SAMPLES
         watchChiliPepprPauseSolderDispenser: function() {
             // This macro shows how to watch for the chilipeppr
             // pause sync event that is triggered if you include
@@ -1295,7 +1295,7 @@ jscript: null, // contains the javascript macro that the user is working with
             // send our data
             chilipeppr.publish("/com-chilipeppr-widget-serialport/send", gcode);
         },
-        /* END SAMPLES */
+        // END SAMPLES
         
         statEl: null, // cache the status element in DOM
         status: function(txt) {
