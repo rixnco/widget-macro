@@ -324,7 +324,8 @@ var extractDocs = function(indx) {
     var newlines = [];
     for (var ctr in lines) {
       var line = lines[ctr];
-      line = line.replace(/^[\s\*]+/g, "");
+      // trim space at front of line and/or asterisk and/or forward slash /
+      line = line.replace(/^[\s\*\/]+/g, "");
       newlines.push(line);
     }
     comment = newlines.join("\n");
@@ -512,7 +513,11 @@ will you build on top of it?
     s += '| ' + key +
       ' | ' + typeof obj +
       ' | ';
-    s += widgetDocs[key].descHtml.replace(/[\r\n]/g, "");
+    var desc = widgetDocs[key].descHtml;
+    // protect stuff in pre tags
+    // TODO
+    desc = desc.replace(/[\r\n]/g, "");
+    s += desc
     s += ' |\n';
   }
   //console.log("adding markdown:", s);
