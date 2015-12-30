@@ -54,7 +54,7 @@ To better understand how ChiliPeppr's subscribe() method works see amplify.js's 
 
 | Signal | Description |
 | ------ | ----------- |
-| /com-chilipeppr-widget-macro/onExampleGenerate | Example: Publish this signal when we go to generate gcode. |
+| (No signals defined in this widget/element) |
 
 ## Subscribe
 

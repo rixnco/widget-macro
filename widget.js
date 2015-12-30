@@ -55,7 +55,6 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
          */
         publish: {
             // Define a key:value pair here as strings to document what signals you publish.
-            '/onExampleGenerate': 'Example: Publish this signal when we go to generate gcode.'
         },
         /**
          * Define the subscribe signals that this widget/element owns or defines so that
@@ -84,7 +83,7 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             // that are owned by foreign/other widgets.
             // '/com-chilipeppr-elem-dragdrop/ondropped': 'Example: We subscribe to this signal at a higher priority to intercept the signal. We do not let it propagate by returning false.'
         },
-jscript: null, // contains the javascript macro that the user is working with
+        jscript: null, // contains the javascript macro that the user is working with
         init: function () {
 
             this.forkSetup();
