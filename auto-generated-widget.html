@@ -560,6 +560,29 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
                 that.loadJscript(txt);
             });
             
+            // append the autoAddMacros
+            var dropdownEl = $('#' + this.id + ' .dropdown-sample-macros');
+            console.log("dropdown to append to", dropdownEl);
+            for (var i in this.autoAddMacros) {
+                var item = this.autoAddMacros[i];
+                var id = item.id;
+                var desc = item.desc;
+
+                var menuToAdd = $('<li><a href="javascript:" class="com-chilipeppr-widget-macro-sample ' +
+                    'sample-' + id + '">' + desc + '</a></li>');
+                menuToAdd.click(function() {
+                    var txt = that.getMethodString(that[id]);
+                    that.loadJscript(txt);
+                });
+            
+                console.log("adding macro id:", id, "desc:", desc, "el:", menuToAdd);
+                
+                // append to menu
+                dropdownEl.append(menuToAdd);
+                console.log("the new dropdown:", dropdownEl);
+            }
+                        
+            
         },
         getMethodString: function(methodToGet) {
             var txt = methodToGet.toString();
@@ -574,6 +597,9 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             arr = arr.splice(1, arr.length - 2);
             return arr.join("\n");
         },
+        autoAddMacros: [
+            { id : 'generateZigZag', desc : "Generate Zig Zag Tool Path" }
+        ],
 
         // START SAMPLES
         /**
@@ -717,13 +743,13 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             to actually dispense solder paste
             
             Here is a sample gcode file that uses chilipeppr_pause
-            G0 X0 Y0 Z0
+            <pre>G0 X0 Y0 Z0
             F50
             G1 X10
             (chilipeppr_pause trigger laser on)
             G1 X20
             (chilipeppr_pause trigger laser off)
-            G0 X0
+            G0 X0</pre>
             */
         watchChiliPepprPauseSolderDispenser: function() {
             // This macro shows how to watch for the chilipeppr
@@ -923,10 +949,23 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             }
             myWatchChiliPepprPause.init();
         },
+        /**
+         * Shows how to generate a Flash Message inside ChiliPeppr, which is
+         * a message that shows by default for 3 seconds on top of everything
+         * and then fades out. It's a great way to get the user's attention
+         * without you having to write more than one line of code.
+         */
         flashMsg: function() {
             chilipeppr.publish("/com-chilipeppr-elem-flashmsg/flashmsg", "My title", "My body");
             chilipeppr.publish("/com-chilipeppr-elem-flashmsg/flashmsg", "My title", "Only show for 1 second", 1000);
         },
+        /**
+         * Get the object that represents the 3D viewer. Once you have it, you
+         * can put anything into the 3D viewer that you'd like. You can wipe
+         * out the scene, or add to it, or adjust the properties. ChiliPeppr
+         * uses Three.js so you can refer to the docs for Three.js to figure
+         * out different techniques for manipulating things.
+         */
         get3dobj: function() {
             var get3dObj= function() {
                 chilipeppr.subscribe("/com-chilipeppr-widget-3dviewer/recv3dObject", recv3dObj);
@@ -942,6 +981,12 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             get3dObj();
 
         },
+        /**
+         * Convert G2/G3 arcs to G1 moves. If you are having problems with your
+         * CNC controller converting arcs, you could actually rewrite your Gcode
+         * to straight line moves (G1's) with this macro. Each arc gets turned
+         * into 24 line segments.
+         */
         get3dobjG1FromG2G3: function() {
             var get3dObj= function() {
                 chilipeppr.subscribe("/com-chilipeppr-widget-3dviewer/recv3dObject", recv3dObj);
@@ -1660,7 +1705,7 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             <div class="btn-group">
                 <div class="dropdown">
                     <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" data-original-title="" title=""><span class="glyphicon glyphicon-book"></span> <span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu dropdown-sample-macros" role="menu">
                         <li role="presentation" class="dropdown-header recent-files">Sample Macros</li>
                         <li><a href="javascript:" class="com-chilipeppr-widget-macro-sample sample-alert">Alert Box</a></li>
                         <li><a href="javascript:" class="com-chilipeppr-widget-macro-sample sample-status">Show Status</a></li>
