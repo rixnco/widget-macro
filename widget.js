@@ -526,13 +526,14 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
 
                 var menuToAdd = $('<li><a href="javascript:" class="com-chilipeppr-widget-macro-sample ' +
                     'sample-' + id + '">' + desc + '</a></li>');
-                menuToAdd.click(function() {
-                    var txt = that.getMethodString(that[id]);
+                menuToAdd.click({id:id}, function(evt) {
+                    console.log("evt.data:", evt.data);
+                    var txt = that.getMethodString(that[evt.data.id]);
                     that.loadJscript(txt);
                 });
             
                 console.log("adding macro id:", id, "desc:", desc, "el:", menuToAdd);
-                
+                 
                 // append to menu
                 dropdownEl.append(menuToAdd);
                 console.log("the new dropdown:", dropdownEl);
@@ -554,7 +555,10 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             return arr.join("\n");
         },
         autoAddMacros: [
-            { id : 'generateZigZag', desc : "Generate Zig Zag Tool Path" }
+            { id : 'generateZigZag', desc : "Generate Zig Zag Tool Path" },
+            { id : 'makeFeedholdBtnHuge', desc : "Make Feedhold Button Huge" },
+            { id : 'turnOffAllPopovers', desc : "Turn Off All Popovers" },
+            { id : 'makeAllButtonsBig', desc : "Make All Buttons Big" },
         ],
 
         // START SAMPLES
@@ -571,6 +575,21 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
          * over a surface to ablate or cure material
          * by scanning back and forth with a step over.
          */
+        makeFeedholdBtnHuge: function() {
+            var btn = $('.tinyg-feedhold')
+            btn.removeClass('btn-xs');
+            var parent = btn.parent();
+            btn.detach();
+            btn.prependTo(parent.parent().parent());
+            btn.attr('style', 'width:100%;margin-bottom:10px;');
+        },
+        turnOffAllPopovers: function() {
+            $('[data-toggle="popover"]').popover('destroy');
+            $('[data-trigger="hover"]').popover('destroy');
+        },
+        makeAllButtonsBig: function() {
+            $('.btn').removeClass('btn-xs');
+        },
         generateZigZag: function() {
             /**
              * This macro helps you generate a zig zag tool
