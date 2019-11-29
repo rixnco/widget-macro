@@ -14,10 +14,10 @@ not conflict with other ChiliPeppr widgets.
 | ID                    | com-chilipeppr-widget-macro |
 | Name                  | Widget / Macro |
 | Description           | Edit and run Javascript macros inside ChiliPeppr. Lots of sample macros too. |
-| chilipeppr.load() URL | http://raw.githubusercontent.com/chilipeppr/widget-macro/master/auto-generated-widget.html |
-| Edit URL              | http://ide.c9.io/chilipeppr/widget-macro |
-| Github URL            | http://github.com/chilipeppr/widget-macro |
-| Test URL              | https://preview.c9users.io/chilipeppr/widget-macro/widget.html |
+| chilipeppr.load() URL | http://raw.githubusercontent.com/rixnco/widget-macro/master/auto-generated-widget.html |
+| Edit URL              | http://ide.c9.io/undefined/undefined |
+| Github URL            | http://github.com/rixnco/widget-macro |
+| Test URL              | https://preview.c9users.io/undefined/undefined/widget.html |
 
 ## Example Code for chilipeppr.load() Statement
 
@@ -33,7 +33,7 @@ $("body").append('<' + 'div id="myDivWidgetMacro"><' + '/div>');
 
 chilipeppr.load(
   "#myDivWidgetMacro",
-  "http://raw.githubusercontent.com/chilipeppr/widget-macro/master/auto-generated-widget.html",
+  "http://raw.githubusercontent.com/rixnco/widget-macro/master/auto-generated-widget.html",
   function() {
     // Callback after widget loaded into #myDivWidgetMacro
     // Now use require.js to get reference to instantiated widget
@@ -132,11 +132,11 @@ The table below shows, in order, the methods and properties inside the widget/el
           </tr>
       </thead>
       <tbody>
-      <tr valign="top"><td>id</td><td>string</td><td>"com-chilipeppr-widget-macro"<br><br>The ID of the widget. You must define this and make it unique.</td></tr><tr valign="top"><td>name</td><td>string</td><td>"Widget / Macro"</td></tr><tr valign="top"><td>desc</td><td>string</td><td>"Edit and run Javascript macros inside ChiliPeppr. Lots of sample macros too."</td></tr><tr valign="top"><td>url</td><td>string</td><td>"http://raw.githubusercontent.com/chilipeppr/widget-macro/master/auto-generated-widget.html"</td></tr><tr valign="top"><td>fiddleurl</td><td>string</td><td>"http://ide.c9.io/chilipeppr/widget-macro"</td></tr><tr valign="top"><td>githuburl</td><td>string</td><td>"http://github.com/chilipeppr/widget-macro"</td></tr><tr valign="top"><td>testurl</td><td>string</td><td>"http://widget-macro-chilipeppr.c9users.io/widget.html"</td></tr><tr valign="top"><td>publish</td><td>object</td><td>Please see docs above.<br><br>Define the publish signals that this widget/element owns or defines so that
+      <tr valign="top"><td>id</td><td>string</td><td>"com-chilipeppr-widget-macro"<br><br>The ID of the widget. You must define this and make it unique.</td></tr><tr valign="top"><td>name</td><td>string</td><td>"Widget / Macro"</td></tr><tr valign="top"><td>desc</td><td>string</td><td>"Edit and run Javascript macros inside ChiliPeppr. Lots of sample macros too."</td></tr><tr valign="top"><td>url</td><td>string</td><td>"http://raw.githubusercontent.com/rixnco/widget-macro/master/auto-generated-widget.html"</td></tr><tr valign="top"><td>fiddleurl</td><td>string</td><td>"http://ide.c9.io/undefined/undefined"</td></tr><tr valign="top"><td>githuburl</td><td>string</td><td>"http://github.com/rixnco/widget-macro"</td></tr><tr valign="top"><td>testurl</td><td>string</td><td>"http://undefined-undefined.c9users.io/widget.html"</td></tr><tr valign="top"><td>publish</td><td>object</td><td>Please see docs above.<br><br>Define the publish signals that this widget/element owns or defines so that
 other widgets know how to subscribe to them and what they do.</td></tr><tr valign="top"><td>subscribe</td><td>object</td><td>Please see docs above.<br><br>Define the subscribe signals that this widget/element owns or defines so that
 other widgets know how to subscribe to them and what they do.</td></tr><tr valign="top"><td>foreignPublish</td><td>object</td><td>Please see docs above.<br><br>Document the foreign publish signals, i.e. signals owned by other widgets
 or elements, that this widget/element publishes to.</td></tr><tr valign="top"><td>foreignSubscribe</td><td>object</td><td>Please see docs above.<br><br>Document the foreign subscribe signals, i.e. signals owned by other widgets
-or elements, that this widget/element subscribes to.</td></tr><tr valign="top"><td>jscript</td><td>object</td><td></td></tr><tr valign="top"><td>init</td><td>function</td><td>function () </td></tr><tr valign="top"><td>setupStartup</td><td>function</td><td>function () </td></tr><tr valign="top"><td>onStartup</td><td>function</td><td>function () </td></tr><tr valign="top"><td>editStartup</td><td>function</td><td>function (evt) </td></tr><tr valign="top"><td>saveStartup</td><td>function</td><td>function (evt) </td></tr><tr valign="top"><td>makeTextareaAcceptTabs</td><td>function</td><td>function () </td></tr><tr valign="top"><td>getJscript</td><td>function</td><td>function () </td></tr><tr valign="top"><td>runMacro</td><td>function</td><td>function (macroStr, helpTxt) </td></tr><tr valign="top"><td>jscriptKeypress</td><td>function</td><td>function (evt) </td></tr><tr valign="top"><td>showData</td><td>function</td><td>function (datatxt) </td></tr><tr valign="top"><td>saveMacro</td><td>function</td><td>function () </td></tr><tr valign="top"><td>deleteRecentFiles</td><td>function</td><td>function () </td></tr><tr valign="top"><td>createRecentFileEntry</td><td>function</td><td>function (fileStr, info) </td></tr><tr valign="top"><td>buildRecentFileMenu</td><td>function</td><td>function () </td></tr><tr valign="top"><td>loadFileFromLocalStorageKey</td><td>function</td><td>function (key) </td></tr><tr valign="top"><td>loadJscript</td><td>function</td><td>function (txt) </td></tr><tr valign="top"><td>setupSamples</td><td>function</td><td>function () </td></tr><tr valign="top"><td>getMethodString</td><td>function</td><td>function (methodToGet) </td></tr><tr valign="top"><td>autoAddMacros</td><td>object</td><td></td></tr><tr valign="top"><td>makeFeedholdBtnHuge</td><td>function</td><td>function () <br><br>This macro helps you generate a zig zag tool
+or elements, that this widget/element subscribes to.</td></tr><tr valign="top"><td>jscript</td><td>object</td><td></td></tr><tr valign="top"><td>init</td><td>function</td><td>function () </td></tr><tr valign="top"><td>setupStartup</td><td>function</td><td>function() </td></tr><tr valign="top"><td>onStartup</td><td>function</td><td>function() </td></tr><tr valign="top"><td>editStartup</td><td>function</td><td>function(evt) </td></tr><tr valign="top"><td>saveStartup</td><td>function</td><td>function(evt) </td></tr><tr valign="top"><td>makeTextareaAcceptTabs</td><td>function</td><td>function() </td></tr><tr valign="top"><td>getJscript</td><td>function</td><td>function() </td></tr><tr valign="top"><td>runMacro</td><td>function</td><td>function(macroStr, helpTxt) </td></tr><tr valign="top"><td>jscriptKeypress</td><td>function</td><td>function(evt) </td></tr><tr valign="top"><td>showData</td><td>function</td><td>function(datatxt) </td></tr><tr valign="top"><td>saveMacro</td><td>function</td><td>function() </td></tr><tr valign="top"><td>deleteRecentFiles</td><td>function</td><td>function() </td></tr><tr valign="top"><td>createRecentFileEntry</td><td>function</td><td>function(fileStr, info) </td></tr><tr valign="top"><td>buildRecentFileMenu</td><td>function</td><td>function() </td></tr><tr valign="top"><td>loadFileFromLocalStorageKey</td><td>function</td><td>function(key) </td></tr><tr valign="top"><td>loadJscript</td><td>function</td><td>function(txt) </td></tr><tr valign="top"><td>setupSamples</td><td>function</td><td>function() </td></tr><tr valign="top"><td>getMethodString</td><td>function</td><td>function(methodToGet) </td></tr><tr valign="top"><td>autoAddMacros</td><td>object</td><td></td></tr><tr valign="top"><td>makeFeedholdBtnHuge</td><td>function</td><td>function() <br><br>This macro helps you generate a zig zag tool
 path inside of an overall rectangular shape. 
 Give it the width and height of the rectangular
 shape. Then give it the step over value and it 
@@ -144,7 +144,7 @@ will generate the gcode and then send it to the
 workspace so you can visualize it and run it.<br><br>This can be used to mill out or pocket a work
 piece. It can also be used to scan a laser
 over a surface to ablate or cure material
-by scanning back and forth with a step over.</td></tr><tr valign="top"><td>turnOffAllPopovers</td><td>function</td><td>function () </td></tr><tr valign="top"><td>makeAllButtonsBig</td><td>function</td><td>function () </td></tr><tr valign="top"><td>generateZigZag</td><td>function</td><td>function () </td></tr><tr valign="top"><td>watchChiliPepprPauseSolderDispenser</td><td>function</td><td>function () <br><br>This macro shows how to watch for the chilipeppr
+by scanning back and forth with a step over.</td></tr><tr valign="top"><td>turnOffAllPopovers</td><td>function</td><td>function() </td></tr><tr valign="top"><td>makeAllButtonsBig</td><td>function</td><td>function() </td></tr><tr valign="top"><td>generateZigZag</td><td>function</td><td>function() </td></tr><tr valign="top"><td>watchChiliPepprPauseSolderDispenser</td><td>function</td><td>function() <br><br>This macro shows how to watch for the chilipeppr
 pause sync event that is triggered if you include
 a comment in your gcode file like 
 (chilipeppr_pause) or ; chilipeppr_pause
@@ -156,7 +156,7 @@ G1 X10<br>
 (chilipeppr_pause trigger laser on)<br>
 G1 X20<br>
 (chilipeppr_pause trigger laser off)<br>
-G0 X0</pre></td></tr><tr valign="top"><td>watchChiliPepprPause</td><td>function</td><td>function () <br><br>This macro shows how to watch for the chilipeppr
+G0 X0</pre></td></tr><tr valign="top"><td>watchChiliPepprPause</td><td>function</td><td>function() <br><br>This macro shows how to watch for the chilipeppr
 pause sync event that is triggered if you include
 a comment in your gcode file like 
 (chilipeppr_pause) or ; chilipeppr_pause<br><br>Here is a sample gcode file that uses chilipeppr_pause
@@ -166,17 +166,17 @@ G1 X10<br>
 (chilipeppr_pause trigger laser on)<br>
 G1 X20<br>
 (chilipeppr_pause trigger laser off)<br>
-G0 X0</pre></td></tr><tr valign="top"><td>flashMsg</td><td>function</td><td>function () <br><br>Shows how to generate a Flash Message inside ChiliPeppr, which is
+G0 X0</pre></td></tr><tr valign="top"><td>flashMsg</td><td>function</td><td>function() <br><br>Shows how to generate a Flash Message inside ChiliPeppr, which is
 a message that shows by default for 3 seconds on top of everything
 and then fades out. It's a great way to get the user's attention
-without you having to write more than one line of code.</td></tr><tr valign="top"><td>get3dobj</td><td>function</td><td>function () <br><br>Get the object that represents the 3D viewer. Once you have it, you
+without you having to write more than one line of code.</td></tr><tr valign="top"><td>get3dobj</td><td>function</td><td>function() <br><br>Get the object that represents the 3D viewer. Once you have it, you
 can put anything into the 3D viewer that you'd like. You can wipe
 out the scene, or add to it, or adjust the properties. ChiliPeppr
 uses Three.js so you can refer to the docs for Three.js to figure
-out different techniques for manipulating things.</td></tr><tr valign="top"><td>get3dobjG1FromG2G3</td><td>function</td><td>function () <br><br>Convert G2/G3 arcs to G1 moves. If you are having problems with your
+out different techniques for manipulating things.</td></tr><tr valign="top"><td>get3dobjG1FromG2G3</td><td>function</td><td>function() <br><br>Convert G2/G3 arcs to G1 moves. If you are having problems with your
 CNC controller converting arcs, you could actually rewrite your Gcode
 to straight line moves (G1's) with this macro. Each arc gets turned
-into 24 line segments.</td></tr><tr valign="top"><td>injectBtn</td><td>function</td><td>function () </td></tr><tr valign="top"><td>rewriteGcode</td><td>function</td><td>function () </td></tr><tr valign="top"><td>watchOnCompleteControlArduino</td><td>function</td><td>function () </td></tr><tr valign="top"><td>iterateGcode</td><td>function</td><td>function () </td></tr><tr valign="top"><td>injectCams</td><td>function</td><td>function () </td></tr><tr valign="top"><td>downloadGcode</td><td>function</td><td>function () </td></tr><tr valign="top"><td>sendToArduino</td><td>function</td><td>function () </td></tr><tr valign="top"><td>cmdsSentViaTimeout</td><td>function</td><td>function () </td></tr><tr valign="top"><td>addbbox</td><td>function</td><td>function () </td></tr><tr valign="top"><td>fadeout</td><td>function</td><td>function () </td></tr><tr valign="top"><td>sendGcodeToWorkspace</td><td>function</td><td>function () </td></tr><tr valign="top"><td>runTestProbe</td><td>function</td><td>function () </td></tr><tr valign="top"><td>watch</td><td>function</td><td>function () </td></tr><tr valign="top"><td>sendSerial</td><td>function</td><td>function (gcode) </td></tr><tr valign="top"><td>statEl</td><td>object</td><td></td></tr><tr valign="top"><td>status</td><td>function</td><td>function (txt) </td></tr><tr valign="top"><td>getZMinSettings</td><td>function</td><td>function (donecallback) </td></tr><tr valign="top"><td>threeDGetUserObject</td><td>function</td><td>function () </td></tr><tr valign="top"><td>threeDMakeText</td><td>function</td><td>function (vals) </td></tr><tr valign="top"><td>forkSetup</td><td>function</td><td>function () </td></tr>
+into 24 line segments.</td></tr><tr valign="top"><td>injectBtn</td><td>function</td><td>function() </td></tr><tr valign="top"><td>rewriteGcode</td><td>function</td><td>function() </td></tr><tr valign="top"><td>watchOnCompleteControlArduino</td><td>function</td><td>function() </td></tr><tr valign="top"><td>iterateGcode</td><td>function</td><td>function() </td></tr><tr valign="top"><td>injectCams</td><td>function</td><td>function() </td></tr><tr valign="top"><td>downloadGcode</td><td>function</td><td>function() </td></tr><tr valign="top"><td>sendToArduino</td><td>function</td><td>function() </td></tr><tr valign="top"><td>cmdsSentViaTimeout</td><td>function</td><td>function() </td></tr><tr valign="top"><td>addbbox</td><td>function</td><td>function() </td></tr><tr valign="top"><td>fadeout</td><td>function</td><td>function() </td></tr><tr valign="top"><td>sendGcodeToWorkspace</td><td>function</td><td>function() </td></tr><tr valign="top"><td>runTestProbe</td><td>function</td><td>function() </td></tr><tr valign="top"><td>watch</td><td>function</td><td>function() </td></tr><tr valign="top"><td>sendSerial</td><td>function</td><td>function(gcode) </td></tr><tr valign="top"><td>statEl</td><td>object</td><td></td></tr><tr valign="top"><td>status</td><td>function</td><td>function(txt) </td></tr><tr valign="top"><td>getZMinSettings</td><td>function</td><td>function(donecallback) </td></tr><tr valign="top"><td>threeDGetUserObject</td><td>function</td><td>function() </td></tr><tr valign="top"><td>threeDMakeText</td><td>function</td><td>function(vals) </td></tr><tr valign="top"><td>forkSetup</td><td>function</td><td>function () </td></tr>
       </tbody>
   </table>
 
