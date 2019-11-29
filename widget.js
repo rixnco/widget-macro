@@ -16,7 +16,7 @@ cprequire_test(["inline:com-chilipeppr-widget-macro"], function(myWidget) {
 
     chilipeppr.load(
         "#testDivForFlashMessageWidget",
-        "http://fiddle.jshell.net/chilipeppr/90698kax/show/light/",
+        "http://raw.githubusercontent.com/rixnco/element-flash/master/auto-generated-widget.html",
         function() {
             console.log("mycallback got called after loading flash msg module");
             cprequire(["inline:com-chilipeppr-elem-flashmsg"], function(fm) {
@@ -1630,7 +1630,7 @@ cpdefine("inline:com-chilipeppr-widget-macro", ["chilipeppr_ready", /* other dep
             });
             
             var that = this;
-            chilipeppr.load('http://raw.githubusercontent.com/rixnco/widget-pubsubviewer/master/auto-generated-widget.html', function () {
+            chilipeppr.load("http://raw.githubusercontent.com/rixnco/widget-pubsubviewer/master/auto-generated-widget.html", function () {
                 require(['inline:com-chilipeppr-elem-pubsubviewer'], function (pubsubviewer) {
                     pubsubviewer.attachTo($(topCssSelector + ' .panel-heading .dropdown .dropdown-menu-main'), that);
                 });
